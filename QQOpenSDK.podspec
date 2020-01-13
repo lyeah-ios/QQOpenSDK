@@ -32,4 +32,6 @@ Pod::Spec.new do |s|
 
   s.ios.vendored_frameworks = 'Frameworks/TencentOpenAPI.framework'
 
+  s.ios.frameworks = 'UIKit', 'Foundation', 'WebKit'
+
 end
