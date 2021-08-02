@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "QQOpenSDK"
-  s.version      = "3.5.3"
-  s.summary      = "QQ Open SDK 3.5.3 version"
+  s.version      = "3.5.5"
+  s.summary      = "QQ Open SDK 3.5.5 version"
 
   s.homepage     = "https://open.tencent.com"
 

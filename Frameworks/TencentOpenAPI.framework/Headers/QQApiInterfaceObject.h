@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger,QQApiSendResultCode) {
     EQQAPI_THIRD_APP_GROUP_ERROR_CGI_FAILED = 15, // CGI请求失败
     EQQAPI_THIRD_APP_GROUP_ERROR_HAS_BINDED = 16, // 该组织已经绑定群聊
     EQQAPI_THIRD_APP_GROUP_ERROR_NOT_BINDED = 17, // 该组织尚未绑定群聊
+    EQQAPI_THIRD_APP_GROUP_ERROR_HAS_UNBINDED = 18,  //该组织已经解绑群聊
     EQQAPIQZONENOTSUPPORTTEXT = 10000,  //qzone分享不支持text类型分享
     EQQAPIQZONENOTSUPPORTIMAGE = 10001,  //qzone分享不支持image类型分享
     EQQAPIVERSIONNEEDUPDATE = 10002,  //当前QQ版本太低，需要更新至新版本才可以支持
@@ -273,6 +274,8 @@ __attribute__((visibility("default"))) @interface QQApiURLObject : QQApiObject
 @interface QQApiVideoForQQAvatarObject : QQApiExtendObject
 @property(nonatomic, retain) NSString *assetURL;
 @end
+
+
 
 //QQApiAuthObject 用于拉起手Q的授权详情页
 @interface QQApiAuthObject : QQApiObject
@@ -657,6 +660,54 @@ typedef NS_ENUM(NSUInteger, QQApiInterfaceRespType) {
 
 /** 具体待展现消息 */
 @property (nonatomic, retain) QQApiObject *message;
+
+@end
+
+#pragma mark --一键加群&建群&解绑群
+// QQApiThirdAppBindGroupObject
+/** \brief 第三方app绑定群
+ */
+@interface QQApiThirdAppBindGroupObject : QQApiObject
+
+@property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, copy) NSString *payToken;
+@property (nonatomic, copy) NSString *pfkey;
+@property (nonatomic, copy) NSString *unionID;
+@property (nonatomic, copy) NSString *appDisplayName;
+
+- (id)initWithAccessToken:(NSString *)accessToken payToken:(NSString *)payToken pfkey:(NSString *)pfkey unionID:(NSString *)unionID appDisplayName:(NSString *)appDisplayName; ///<初始化方法
++ (id)objectWithAccessToken:(NSString *)accessToken payToken:(NSString *)payToken pfkey:(NSString *)pfkey unionID:(NSString *)unionID appDisplayName:(NSString *)appDisplayName; ///<工厂方法，获取一个QQApiThirdAppBindGroupObject对象.
+
+@end
+
+// QQApiThirdAppJoinGroupObject
+/** \brief 第三方app加入群
+ */
+@interface QQApiThirdAppJoinGroupObject : QQApiObject
+
+@property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, copy) NSString *payToken;
+@property (nonatomic, copy) NSString *pfkey;
+@property (nonatomic, copy) NSString *unionID;
+
+- (id)initWithAccessToken:(NSString *)accessToken payToken:(NSString *)payToken pfkey:(NSString *)pfkey unionID:(NSString *)unionID; ///<初始化方法
++ (id)objectWithAccessToken:(NSString *)accessToken payToken:(NSString *)payToken pfkey:(NSString *)pfkey unionID:(NSString *)unionID; ///<工厂方法，获取一个QQApiThirdAppJoinGroupObject对象.
+
+@end
+
+// QQApiThirdAppUnBindGroupObject
+/** \brief 第三方app解绑群
+ */
+@interface QQApiThirdAppUnBindGroupObject : QQApiObject
+
+@property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, copy) NSString *openId;
+@property (nonatomic, copy) NSString *payToken;
+@property (nonatomic, copy) NSString *pfkey;
+@property (nonatomic, copy) NSString *unionID;
+
+- (id)initWithAccessToken:(NSString *)accessToken payToken:(NSString *)payToken pfkey:(NSString *)pfkey unionID:(NSString *)unionID openId:(NSString *)openId appId:(NSString *)appId; ///<初始化方法
++ (id)objectWithAccessToken:(NSString *)accessToken payToken:(NSString *)payToken pfkey:(NSString *)pfkey unionID:(NSString *)unionID openId:(NSString *)openId appId:(NSString *)appId; ///<工厂方法，获取一个QQApiThirdAppBindGroupObject对象.
 
 @end
 
