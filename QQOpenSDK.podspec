@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
 
   s.name         = "QQOpenSDK"
-  s.version      = "3.5.11"
-  s.summary      = "QQ Open SDK 3.5.11 version"
+  s.version      = "3.5.18"
+  s.summary      = "QQ Open SDK 3.5.18 version"
 
   s.homepage     = "https://open.tencent.com"
 
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.ios.vendored_frameworks = 'Frameworks/TencentOpenAPI.framework'
+  s.ios.vendored_frameworks = 'Frameworks/TencentOpenAPI.xcframework'
 
   s.ios.frameworks = 'UIKit', 'Foundation', 'WebKit'
 

@@ -1,2 +1,2 @@
 # QQOpenSDK
-iOS 腾讯开放平台 TencentOpenAPI.framework v3.5.11
+iOS 腾讯开放平台 TencentOpenAPI.xcframework v3.5.18
